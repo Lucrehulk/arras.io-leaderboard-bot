@@ -12,3 +12,4 @@ Commands ->
 !lb l [server1] [server2] [server3] ... [servern] [interval (in ms)] -> Creates a loop leaderboard update for however many servers specified. Depending on the interval set by the user, the bot will create/edit (if it has already initialized) a message for a certain leaderboard along that interval. 
 !lb q [server1] [server2] [server3] ... [servern] -> For each server specified, the loop leaderboard update for that server is cancelled.
 ```
+<img width="878" height="597" alt="image" src="https://github.com/user-attachments/assets/ed3078d4-4867-475b-9db5-caf37c826a6a" />
