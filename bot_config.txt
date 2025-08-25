@@ -1,0 +1,6 @@
+token=MTExMjA2OTcxNzAzMzc1NDYzNA.G7mZJA.lkONebKyWnUn4DSyiLJAuUxUYn9U8RqI5bBixE
+channel_id=1159100037683482704
+user_agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36
+bot_update_interval=5000
+bot_message_depth=50
+proxy=
