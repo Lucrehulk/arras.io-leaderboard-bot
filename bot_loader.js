@@ -163,8 +163,9 @@ async function bot_loop(token, channel_id, servers, limit) {
                                             send_discord_message(config.token, config.channel_id, `Server #${server} not found.`, message.id);
                                         };
                                         index += 1;
-                                        if (index == content.length) clearInterval(load_servers);
+                                        if (content.length !== 1 && index == content.length) clearInterval(load_servers);
                                     }, time);
+                                    if (content.length == 1) clearInterval(load_servers);
                                 } else {
                                     send_discord_message(config.token, config.channel_id, `Please provide an update interval at the end of the command.`, message.id);
                                 };
