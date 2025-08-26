@@ -5,6 +5,8 @@ Modify the bot_config.txt file to configure it to your needs. If you have a work
 
 Don't worry about servers.txt, the bot specifically writes a new updated server list in that file every time it is initialized (it does this to avoid having to directly fetch from the arras page itself, which sometimes leads to rate limiting).
 
+Also no the token in the config file does not work, please don't try logging into my discord account...
+
 To run, simply install the undici library with npm and run the bot_loader.js file.
 
 ```
