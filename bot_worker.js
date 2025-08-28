@@ -1113,7 +1113,7 @@ function create_bot(url, proxy, connection_count) {
                                         mockup_data.parse(decoded_packet);
                                     break;
                                     case 82:
-                                        let game_data_length = message_packet[2];
+                                        let game_data_length = message_packet[2] + message_packet[3] * 256;
                                         let game_data_end = 4 + game_data_length;
                                         let game_data = new TextDecoder().decode(new Uint8Array(message_packet.slice(4, game_data_end)));
                                         let remaining_packet = decode_packet(new Uint8Array(message_packet.slice(game_data_end, message_packet.length)))[0];
@@ -1493,3 +1493,4 @@ let compiled_module;
     compiled_module = await WebAssembly.compile(await fs.readFile(path.resolve(__dirname, './bot.wasm')));
     create_bot(server_code, proxy, 0);
 })();
+
