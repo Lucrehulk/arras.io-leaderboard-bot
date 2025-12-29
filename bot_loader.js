@@ -1,5 +1,4 @@
 const path = require('path');
-const ProxyAgent = require('undici');
 const { Worker } = require('worker_threads');
 const fs = require('fs').promises;
 
@@ -10,12 +9,6 @@ let config = {};
         let data = entry.split("=");
         config[data[0]] = data[1];
     });
-    if (config.proxy !== "") {
-        let proxy = config.proxy.split(":").map(data => data = data.trimStart());
-        config.proxy = proxy.length == 4 ? 
-            new ProxyAgent(`http://${proxy[2]}:${proxy[3]}@${proxy[0]}:${proxy[1]}`) :
-            new ProxyAgent(`http://${proxy[0]}:${proxy[1]}`);
-    };
     send_discord_message(config.token, config.channel_id, `LB bot is now active in this channel.`);
     console.log("LB bot started!");
     await fs.writeFile(path.resolve(__dirname, './servers.txt'), await (await fetch("https://ak7oqfc2u4qqcu6i-c.uvwx.xyz:8443/2222/status")).text());
@@ -203,3 +196,4 @@ async function bot_loop(token, channel_id, servers, limit) {
         delete replied_ids[id];
     }
 }
+
