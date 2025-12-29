@@ -1,6 +1,6 @@
 const fs = require('fs').promises;
 const path = require('path');
-const { WebSocket } = require('undici');
+const { WebSocket, ProxyAgent } = require('undici');
 const { parentPort, workerData: [user_agent, proxy, server_code] } = require('worker_threads');
 
 // Normal fetch was having some errors if it failed, so figured I'd do this to prevent the process from crashing.
@@ -1072,7 +1072,7 @@ function create_bot(url, proxy, connection_count) {
                                     },
                                     protocols: ['arras.io#v1.4+sls+et0', 'arras.io'],
                                 };
-                                if (proxy !== "") websocket_headers.dispatcher = proxy;
+                                if (proxy !== "") websocket_headers.dispatcher = new ProxyAgent(proxy);
                                 let e = new WebSocket(r, websocket_headers);
                                 return e.binaryType = "arraybuffer",
                                     e
@@ -1496,3 +1496,4 @@ let compiled_module;
     compiled_module = await WebAssembly.compile(await fs.readFile(path.resolve(__dirname, './bot.wasm')));
     create_bot(server_code, proxy, 0);
 })();
+
