@@ -1496,6 +1496,3 @@ let compiled_module;
     compiled_module = await WebAssembly.compile(await fs.readFile(path.resolve(__dirname, './bot.wasm')));
     create_bot(server_code, proxy, 0);
 })();
-
-
-
