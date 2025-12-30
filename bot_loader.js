@@ -29,7 +29,7 @@ async function send_discord_message(token, channel_id, text, reply = false) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': token
+            'Authorization': `Bot ${token}`
         },
         body: JSON.stringify(content)
     })).json();
@@ -40,7 +40,7 @@ async function edit_discord_message(token, channel_id, text, id) {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': token
+            'Authorization': `Bot ${token}`
         },
         body: JSON.stringify({ content: text })
     });
@@ -61,7 +61,7 @@ async function bot_loop(token, channel_id, servers, limit) {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': token
+            'Authorization': `Bot ${token}`
         },
     })).json();
     let eliminate = { ...replied_ids };
@@ -196,4 +196,5 @@ async function bot_loop(token, channel_id, servers, limit) {
         delete replied_ids[id];
     }
 }
+
 
